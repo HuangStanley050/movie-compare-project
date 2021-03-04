@@ -9,10 +9,12 @@ import Rating from "../Rating";
 const MovieLeft = () => {
   useEffect(async () => {
     const getMovie = async () => {
+      // s is for "search"
+      // i is for movie id
       let result = await axios.get("http://www.omdbapi.com", {
         params: {
           apikey: process.env.NEXT_PUBLIC_MOVIE_API_KEY,
-          s: "avengers",
+          i: "tt0848228",
         },
       });
       return result;
