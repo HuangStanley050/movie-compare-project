@@ -1,7 +1,23 @@
 import React from "react";
+import AsyncSelect from "react-select/async";
 
 const MovieInput = () => {
-  return <h1>input place holder</h1>;
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+  return (
+    <div style={{ marginTop: "2rem" }}>
+      <form onSubmit={handleSubmit}>
+        <AsyncSelect
+          isClearable
+          className="basic-single"
+          classNamePrefix="select"
+          name="search"
+          loadOptions={() => {}}
+        />
+      </form>
+    </div>
+  );
 };
 
 export default MovieInput;
