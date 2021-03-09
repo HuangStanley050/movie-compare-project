@@ -1,50 +1,11 @@
 import React, { useState } from "react";
 import AsyncSelect from "react-select/async";
 import axios from "axios";
-import debounce from "debounce-promise";
+import { promiseOptions } from "./helpers";
 
 const MovieInput = () => {
   const [selected, setSelected] = useState("");
-  const fetchData = async (inputValue) => {
-    let result;
-    try {
-      result = await axios.get("http://www.omdbapi.com", {
-        params: {
-          apikey: process.env.NEXT_PUBLIC_MOVIE_API_KEY,
-          s: inputValue,
-        },
-      });
-      return result;
-    } catch (err) {
-      return err;
-    }
-  };
-  const promiseOptions = (inputValue) => {
-    const wait = 1500;
-    let timeOutId;
 
-    return new Promise((resolve, reject) => {
-      let searchResult;
-
-      if (timeOutId) {
-        clearTimeout(timeOutId);
-      }
-
-      timeOutId = setTimeout(async () => {
-        try {
-          searchResult = await fetchData(inputValue);
-
-          const filter = searchResult.data.Search.map((title) => ({
-            value: title.Title,
-            label: title.Title,
-          }));
-          resolve(filter);
-        } catch (err) {
-          reject(err);
-        }
-      }, wait);
-    });
-  };
   const handleSubmit = (e) => {
     e.preventDefault();
   };
