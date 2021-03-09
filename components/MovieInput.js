@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import AsyncSelect from "react-select/async";
 import axios from "axios";
 import debounce from "debounce-promise";
 
 const MovieInput = () => {
+  const [selected, setSelected] = useState("");
   const fetchData = async (inputValue) => {
     let result;
     try {
@@ -47,11 +48,17 @@ const MovieInput = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
   };
+  const handleInput = (value, { action }) => {
+    if (action === "select-option") {
+      setSelected(value.value);
+    }
+  };
   return (
     <div style={{ marginTop: "2rem" }}>
       <form onSubmit={handleSubmit}>
         <AsyncSelect
           isClearable
+          onChange={handleInput}
           className="basic-single"
           classNamePrefix="select"
           name="search"
