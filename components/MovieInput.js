@@ -16,21 +16,21 @@ const MovieInput = () => {
     return result;
   };
   const promiseOptions = (inputValue) => {
-    let searchResult;
-    if (timeOutId) {
-      clearTimeout(timeOutId);
-    }
-    timeOutId = setTimeout(async () => {
-      searchResult = await fetchData(inputValue);
-      console.log(searchResult);
-    }, wait);
     return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve([
-          { value: "green", label: "G" },
-          { value: "yellow", label: "Y" },
-        ]);
-      }, 1000);
+      let searchResult;
+
+      if (timeOutId) {
+        clearTimeout(timeOutId);
+      }
+      timeOutId = setTimeout(async () => {
+        searchResult = await fetchData(inputValue);
+        //console.log(searchResult);
+        const filter = searchResult.data.Search.map((title) => ({
+          value: title.Title,
+          label: title.Title,
+        }));
+        resolve(filter);
+      }, wait);
     });
   };
   const handleSubmit = (e) => {
