@@ -19,7 +19,7 @@ const MovieInput = () => {
     }
   };
   const promiseOptions = (inputValue) => {
-    const wait = 3000;
+    const wait = 1500;
     let timeOutId;
 
     return new Promise((resolve, reject) => {
