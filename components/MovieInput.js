@@ -52,6 +52,9 @@ const MovieInput = () => {
     if (action === "select-option") {
       setSelected(value.value);
     }
+    if (action === "clear") {
+      setSelected("");
+    }
   };
   return (
     <div style={{ marginTop: "2rem" }}>
