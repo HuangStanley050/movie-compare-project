@@ -1,6 +1,6 @@
 import React, { useState, useReducer, useContext, createContext } from "react";
 
-const movieContext = createContext();
+export const movieContext = createContext();
 movieContext.displayName = "MovieContext";
 
 const initialState = {
@@ -8,7 +8,12 @@ const initialState = {
   movieRight: {},
 };
 const reducer = (state = initialState, action) => {
-  return state;
+  switch (action.type) {
+    case "HA":
+      console.log("HA");
+    default:
+      return state;
+  }
 };
 
 export const MovieProvider = ({ children }) => {

@@ -15,7 +15,7 @@ const fetchData = async (inputValue) => {
   }
 };
 export const promiseOptions = (inputValue) => {
-  const wait = 1500;
+  const wait = 2200;
   let timeOutId;
 
   return new Promise((resolve, reject) => {
@@ -32,6 +32,7 @@ export const promiseOptions = (inputValue) => {
         const filter = searchResult.data.Search.map((title) => ({
           value: title.Title,
           label: title.Title,
+          id: title.imdbID,
         }));
         resolve(filter);
       } catch (err) {
