@@ -4,7 +4,7 @@ import axios from "axios";
 import { promiseOptions } from "./helpers";
 import { movieContext } from "./context/MovieStore";
 const MovieInput = () => {
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState(null);
   const [state, dispatch] = useContext(movieContext);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,7 +14,7 @@ const MovieInput = () => {
     if (action === "select-option") {
       //console.log(value);
       //value.id is the movie id
-      setSelected(value.value);
+      setSelected({ id: value.id, title: value.value });
     }
     if (action === "clear") {
       setSelected("");
