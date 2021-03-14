@@ -2,10 +2,10 @@ import React, { useState, useContext, useEffect } from "react";
 import AsyncSelect from "react-select/async";
 import axios from "axios";
 import { promiseOptions } from "./helpers";
-import { movieContext } from "./context/MovieStore";
+import { useMovie } from "./context/MovieStore";
 const MovieInput = () => {
   const [selected, setSelected] = useState(null);
-  const [state, dispatch] = useContext(movieContext);
+  const [state, dispatch] = useMovie();
 
   const handleSubmit = (e) => {
     e.preventDefault();

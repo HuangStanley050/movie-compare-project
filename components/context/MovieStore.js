@@ -24,3 +24,7 @@ export const MovieProvider = ({ children }) => {
     </movieContext.Provider>
   );
 };
+
+export const useMovie = () => {
+  return useContext(movieContext);
+};
