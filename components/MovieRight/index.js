@@ -2,13 +2,13 @@ import React from "react";
 import Box from "@material-ui/core/Box";
 import BoxOffice from "../BoxOffice";
 import MovieInfo from "../MovieInfo";
-import MovieInput from "../MovieInput";
+import RightInput from "./RightInput";
 import Rating from "../Rating";
 
 const MovieRight = () => {
   return (
     <Box>
-      <MovieInput />
+      <RightInput />
       <MovieInfo />
       <BoxOffice />
       <Rating />
