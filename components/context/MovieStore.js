@@ -16,6 +16,13 @@ const reducer = (state = initialState, action) => {
           ...action.payload,
         },
       };
+    case "RIGHT_INPUT_SELECT":
+      return {
+        ...state,
+        movieRight: {
+          ...action.payload,
+        },
+      };
     default:
       return state;
   }
