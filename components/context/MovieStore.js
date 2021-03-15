@@ -9,8 +9,13 @@ const initialState = {
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "HA":
-      console.log("HA");
+    case "LEFT_INPUT_SELECT":
+      return {
+        ...state,
+        movieLeft: {
+          ...action.payload,
+        },
+      };
     default:
       return state;
   }
