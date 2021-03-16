@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import AsyncSelect from "react-select/async";
 import axios from "axios";
-import { promiseOptions } from "./helpers";
-import { movieContext } from "./context/MovieStore";
-const MovieInput = () => {
+import { promiseOptions } from "../helpers";
+import { useMovie } from "../context/MovieStore";
+
+const RightInput = () => {
   const [selected, setSelected] = useState(null);
-  const [state, dispatch] = useContext(movieContext);
+  const [state, dispatch] = useMovie();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +20,17 @@ const MovieInput = () => {
         i: selected.id,
       },
     });
-    console.log(result);
+    //console.log(result);
+    const { BoxOffice, imdbRating, Poster, Plot } = result.data;
+    dispatch({
+      type: "RIGHT_INPUT_SELECT",
+      payload: {
+        rating: imdbRating ? imdbRating : "N/A",
+        boxoffice: BoxOffice ? BoxOffice : "N/A",
+        image: Poster ? Poster : "N/A",
+        summary: Plot ? Plot : "N/A",
+      },
+    });
   };
 
   const handleInput = (value, { action }) => {
@@ -56,4 +67,4 @@ const MovieInput = () => {
   );
 };
 
-export default MovieInput;
+export default RightInput;

@@ -9,8 +9,20 @@ const initialState = {
 };
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case "HA":
-      console.log("HA");
+    case "LEFT_INPUT_SELECT":
+      return {
+        ...state,
+        movieLeft: {
+          ...action.payload,
+        },
+      };
+    case "RIGHT_INPUT_SELECT":
+      return {
+        ...state,
+        movieRight: {
+          ...action.payload,
+        },
+      };
     default:
       return state;
   }
@@ -23,4 +35,8 @@ export const MovieProvider = ({ children }) => {
       {children}
     </movieContext.Provider>
   );
+};
+
+export const useMovie = () => {
+  return useContext(movieContext);
 };
