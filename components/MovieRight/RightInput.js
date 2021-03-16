@@ -6,7 +6,6 @@ import { useMovie } from "../context/MovieStore";
 
 const RightInput = ({ setRightMovieInfo }) => {
   const [selected, setSelected] = useState(null);
-  //const [state, dispatch] = useMovie();
   const [movieInfo, setMovieInfo] = useState(null);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -22,15 +21,7 @@ const RightInput = ({ setRightMovieInfo }) => {
     });
     //console.log(result);
     const { BoxOffice, imdbRating, Poster, Plot, Title } = result.data;
-    // dispatch({
-    //   type: "RIGHT_INPUT_SELECT",
-    //   payload: {
-    //     rating: imdbRating ? imdbRating : "N/A",
-    //     boxoffice: BoxOffice ? BoxOffice : "N/A",
-    //     image: Poster ? Poster : "N/A",
-    //     summary: Plot ? Plot : "N/A",
-    //   },
-    // });
+
     setRightMovieInfo({
       rating: imdbRating ? imdbRating : "N/A",
       boxoffice: BoxOffice ? BoxOffice : "N/A",
