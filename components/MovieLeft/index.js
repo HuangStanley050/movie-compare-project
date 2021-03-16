@@ -7,10 +7,10 @@ import LeftInput from "./LeftInput";
 import Rating from "../Rating";
 
 const MovieLeft = () => {
-  const [movieInfo, setMovieInfo] = useState(null);
+  const [movieInfo, setLeftMovieInfo] = useState(null);
   return (
     <Box>
-      <LeftInput setMovieInfo={setMovieInfo} />
+      <LeftInput setLeftMovieInfo={setLeftMovieInfo} />
       <MovieInfo />
       <BoxOffice />
       <Rating />

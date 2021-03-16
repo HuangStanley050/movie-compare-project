@@ -4,7 +4,7 @@ import axios from "axios";
 import { promiseOptions } from "../helpers";
 import { useMovie } from "../context/MovieStore";
 
-const LeftInput = ({ setMovieInfo }) => {
+const LeftInput = ({ setLeftMovieInfo }) => {
   const [selected, setSelected] = useState(null);
   //const [state, dispatch] = useMovie();
 
@@ -20,8 +20,8 @@ const LeftInput = ({ setMovieInfo }) => {
         i: selected.id,
       },
     });
-    //console.log(result);
-    const { BoxOffice, imdbRating, Poster, Plot } = result.data;
+    console.log(result);
+    const { BoxOffice, imdbRating, Poster, Plot, Title } = result.data;
     // dispatch({
     //   type: "LEFT_INPUT_SELECT",
     //   payload: {
@@ -31,11 +31,12 @@ const LeftInput = ({ setMovieInfo }) => {
     //     summary: Plot ? Plot : "N/A",
     //   },
     // });
-    setMovieInfo({
+    setLeftMovieInfo({
       rating: imdbRating ? imdbRating : "N/A",
       boxoffice: BoxOffice ? BoxOffice : "N/A",
       image: Poster ? Poster : "N/A",
       summary: Plot ? Plot : "N/A",
+      title: Title,
     });
   };
 
