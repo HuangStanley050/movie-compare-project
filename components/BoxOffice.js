@@ -1,7 +1,7 @@
 import React from "react";
 import { useMovie } from "./context/MovieStore";
-const BoxOffice = () => {
-  return <h1>Box office</h1>;
+const BoxOffice = ({ Info }) => {
+  return Info ? <h1>{Info.boxoffice}</h1> : null;
 };
 
 export default BoxOffice;

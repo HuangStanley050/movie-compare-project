@@ -11,8 +11,8 @@ const MovieRight = () => {
     <Box>
       <RightInput setRightMovieInfo={setRightMovieInfo} />
       <MovieInfo Info={movieInfo} />
-      <BoxOffice />
-      <Rating />
+      <BoxOffice Info={movieInfo} />
+      <Rating Info={movieInfo} />
     </Box>
   );
 };
