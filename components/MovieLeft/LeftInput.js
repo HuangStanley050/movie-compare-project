@@ -19,7 +19,6 @@ const LeftInput = ({ setLeftMovieInfo }) => {
         i: selected.id,
       },
     });
-    console.log(result);
     const { BoxOffice, imdbRating, Poster, Plot, Title } = result.data;
 
     setLeftMovieInfo({
@@ -27,7 +26,7 @@ const LeftInput = ({ setLeftMovieInfo }) => {
       boxoffice: BoxOffice ? BoxOffice : "N/A",
       image: Poster ? Poster : "N/A",
       summary: Plot ? Plot : "N/A",
-      title: Title,
+      title: Title ? Title : "N/A",
     });
   };
 

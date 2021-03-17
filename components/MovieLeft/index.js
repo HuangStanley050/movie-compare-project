@@ -11,7 +11,7 @@ const MovieLeft = () => {
   return (
     <Box>
       <LeftInput setLeftMovieInfo={setLeftMovieInfo} />
-      <MovieInfo />
+      <MovieInfo Info={movieInfo} />
       <BoxOffice />
       <Rating />
     </Box>
