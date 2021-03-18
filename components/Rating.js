@@ -1,7 +1,7 @@
 import React from "react";
 import { useMovie } from "./context/MovieStore";
-const Rating = () => {
-  return <h1>Rating</h1>;
+const Rating = ({ Info }) => {
+  return Info ? <h1>{Info.rating}</h1> : null;
 };
 
 export default Rating;

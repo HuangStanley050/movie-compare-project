@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 
 import Box from "@material-ui/core/Box";
 import BoxOffice from "../BoxOffice";
@@ -7,12 +7,13 @@ import LeftInput from "./LeftInput";
 import Rating from "../Rating";
 
 const MovieLeft = () => {
+  const [movieInfo, setLeftMovieInfo] = useState(null);
   return (
     <Box>
-      <LeftInput />
-      <MovieInfo />
-      <BoxOffice />
-      <Rating />
+      <LeftInput setLeftMovieInfo={setLeftMovieInfo} />
+      <MovieInfo Info={movieInfo} />
+      <BoxOffice Info={movieInfo} />
+      <Rating Info={movieInfo} />
     </Box>
   );
 };
