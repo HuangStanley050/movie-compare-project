@@ -50,6 +50,13 @@ const LeftInput = ({ Info, setLeftMovieInfo }) => {
     dispatch({ type: "LEFT_INPUT_SELECT", payload: Info });
   }, [selected, Info]);
 
+  useEffect(() => {
+    if (!Info) {
+      return;
+    }
+    dispatch({ type: "LEFT_INPUT_SELECT", payload: Info });
+  }, [Info]);
+
   return (
     <div style={{ marginTop: "2rem" }}>
       <form onSubmit={handleSubmit}>
