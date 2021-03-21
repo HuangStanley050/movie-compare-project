@@ -4,8 +4,9 @@ import axios from "axios";
 import { promiseOptions } from "../helpers";
 import { useMovie } from "../context/MovieStore";
 
-const LeftInput = ({ setLeftMovieInfo }) => {
+const LeftInput = ({ Info, setLeftMovieInfo }) => {
   const [selected, setSelected] = useState(null);
+  const [state, dispatch] = useMovie();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -46,7 +47,8 @@ const LeftInput = ({ setLeftMovieInfo }) => {
       return;
     }
     fetchSingleMovieInfo();
-  }, [selected]);
+    dispatch({ type: "LEFT_INPUT_SELECT", payload: Info });
+  }, [selected, Info]);
 
   return (
     <div style={{ marginTop: "2rem" }}>
