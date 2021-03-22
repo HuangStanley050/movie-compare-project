@@ -4,9 +4,9 @@ import axios from "axios";
 import { promiseOptions } from "../helpers";
 import { useMovie } from "../context/MovieStore";
 
-const RightInput = ({ setRightMovieInfo }) => {
+const RightInput = ({ Info, setRightMovieInfo }) => {
   const [selected, setSelected] = useState(null);
-  const [movieInfo, setMovieInfo] = useState(null);
+  const [state, dispatch] = useMovie();
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch({ type: "HA" });
@@ -48,6 +48,13 @@ const RightInput = ({ setRightMovieInfo }) => {
     }
     fetchSingleMovieInfo();
   }, [selected]);
+
+  useEffect(() => {
+    if (!Info) {
+      return;
+    }
+    dispatch({ type: "RIGHT_INPUT_SELECT", payload: Info });
+  }, [Info]);
 
   return (
     <div style={{ marginTop: "2rem" }}>
