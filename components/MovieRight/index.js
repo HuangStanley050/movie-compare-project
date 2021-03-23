@@ -9,7 +9,7 @@ const MovieRight = () => {
   const [movieInfo, setRightMovieInfo] = useState(null);
   return (
     <Box>
-      <RightInput setRightMovieInfo={setRightMovieInfo} />
+      <RightInput Info={movieInfo} setRightMovieInfo={setRightMovieInfo} />
       <MovieInfo Info={movieInfo} />
       <BoxOffice Info={movieInfo} />
       <Rating Info={movieInfo} />

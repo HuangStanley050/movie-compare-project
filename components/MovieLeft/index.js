@@ -10,7 +10,7 @@ const MovieLeft = () => {
   const [movieInfo, setLeftMovieInfo] = useState(null);
   return (
     <Box>
-      <LeftInput setLeftMovieInfo={setLeftMovieInfo} />
+      <LeftInput Info={movieInfo} setLeftMovieInfo={setLeftMovieInfo} />
       <MovieInfo Info={movieInfo} />
       <BoxOffice Info={movieInfo} />
       <Rating Info={movieInfo} />
